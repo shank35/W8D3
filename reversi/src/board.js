@@ -59,8 +59,6 @@ Board.prototype.getPiece = function (pos) {
 
   return this.grid[pos[0]][pos[1]];
 
-
-
   // if (this.isValidPos(pos) === true) {
   //   return this.grid[pos[0]][pos[1]];
   // } else if ((this.isValidPos(pos)) && !(this[pos[0]][pos[1]] instanceof Piece)) {
@@ -76,6 +74,14 @@ Board.prototype.getPiece = function (pos) {
  * matches a given color.
  */
 Board.prototype.isMine = function (pos, color) {
+  debugger;
+  if (this.getPiece(pos).color === color) {
+    return true;
+  } else if (!this.getPiece(pos)) {
+    return true;
+  } else {
+    return false;
+  }
 };
 
 /**
