@@ -111,14 +111,14 @@ Board.prototype._positionsToFlip = function(pos, color, dir, piecesToFlip){
 
   const newPos = [(pos[0] + dir[0]), (pos[1] + dir[1])]   //[0,0] + [1,-2]
 
-  if (this.isValidPos(pos)) {
-    if (this.isOccupied(newPos)) {
-       if (this.getPiece(newPos) === this.getPiece(pos).oppColor) {
-        if (this.getPiece(pos).color !== this.getPiece(newPos + 1).color) {
+  if (!this.isValidPos(pos)) return [];
+  
+  if (!this.isOccupied(newPos)) return [];
+
+  if (this.getPiece(newPos) !== this.getPiece(pos).oppColor) return [];
+
+  if (this.getPiece(pos).color === this.getPiece(newPos + 1).color) return [];
           
-        }
-       } 
-  }
     
 };
 
