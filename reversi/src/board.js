@@ -75,9 +75,9 @@ Board.prototype.getPiece = function (pos) {
  */
 Board.prototype.isMine = function (pos, color) {
   debugger;
-  if (this.getPiece(pos).color === color) {
-    return true;
-  } else if (!this.getPiece(pos)) {
+  if (!this.getPiece(pos)) {
+    return false;
+  } else if (this.getPiece(pos).color === color) {
     return true;
   } else {
     return false;
